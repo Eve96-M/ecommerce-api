@@ -83,10 +83,26 @@ const purchaseCart = async (req, res, next) => {
   }
 }
 
+const userVerify = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const { codeVerify } = req.body;
+    const result = await UserServices.updateVerify(id, codeVerify);
+    if(result) res.status(200).json({status: "user verified", result});
+  } catch (error) {
+    next({
+      status: 400,
+      errorContent: error,
+      message: "Verification error, invalid code",
+    });
+  }
+}
+
 module.exports = {
   userRegister,
   userOrders,
   userCart,
   addProductToCart,
-  purchaseCart
+  purchaseCart,
+  userVerify
 };

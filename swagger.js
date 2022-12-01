@@ -12,9 +12,9 @@ const options = {
 
     },
     apis: [
+        "./src/routes/auth.routes.js",
         "./src/routes/users.routes.js",
         "./src/models/users.models.js",
-        "./src/routes/auth.routes.js",
         "./src/routes/products.routes.js",
       ],
     

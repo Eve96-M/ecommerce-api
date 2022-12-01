@@ -1,9 +1,17 @@
 const { Router } = require("express");
-const { createProduct, getAllProducts } = require("../controllers");
+const {  getAllProducts } = require("../controllers");
 
+/**
+ * @openapi
+ * /api/v1/products:
+ *  get:
+ *   tags: [Get all products in store]
+ *   summary: obtain all the products in the catalog differents to 0
+ *   responses:
+ *     200:
+ *       description: OK
+ */
 const router = Router();
-
-router.post("/products", createProduct);
 
 router.get("/products", getAllProducts);
 

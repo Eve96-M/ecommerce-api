@@ -14,7 +14,7 @@ const products = db.define("products",{
         allowNull: false
     },
     price:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.FLOAT,
         allowNull:false
     },
     availableQty:{
@@ -23,12 +23,18 @@ const products = db.define("products",{
     },
     status:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        defaultValue: "available"
     },
     userId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         field:"user_id"
+    },
+    urlImg: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: "url_img"
     }
 })
 
