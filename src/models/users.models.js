@@ -1,5 +1,5 @@
 const db = require("../utils/database");
-const {DataTypes} = require("sequelize");
+const { DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 
 const code = () => Math.ceil(Math.random() * 999999);
@@ -36,31 +36,40 @@ const code = () => Math.ceil(Math.random() * 999999);
  *        example: 123123
  */
 
-const users = db.define("users",{
-    id: {
-        primaryKey: true,
-        autoIncrement: true,
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-          }
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
+const users = db.define("users", {
+  id: {
+    primaryKey: true,
+    autoIncrement: true,
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      isEmail: true,
     }
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  status: {
+    type: DataTypes.STRING,
+    defaultValue: 'unverified'
+  },
+  codeVerify: {
+    type: DataTypes.INTEGER,
+    defaultValue: code(),
+    field: 'code_verify'
+  }
 },
-{
+  {
     hooks: {
       beforeCreate: (user, options) => {
         const { password } = user;
