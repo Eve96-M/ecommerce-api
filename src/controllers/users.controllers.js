@@ -22,7 +22,7 @@ const userRegister = async (req, res, next) => {
     next({
       status: 400,
       errorContent: error,
-      message: "Faltan datos",
+      message: "Missing data",
     });
   }
 };
@@ -36,7 +36,7 @@ const userOrders = async (req, res, next) => {
     next({
       status: 400,
       errorContent: error,
-      message: "",
+      message: "Invalid data",
     });
   }
 }
@@ -50,7 +50,7 @@ const userCart = async (req, res, next) => {
     next({
       status: 400,
       errorContent: error,
-      message: "",
+      message: "Invalid data",
     });
   }
 }
@@ -64,7 +64,7 @@ const addProductToCart = async (req, res, next) => {
     next({
       status: 400,
       errorContent: error,
-      message: "",
+      message: "Missing data",
     });
   }
 }

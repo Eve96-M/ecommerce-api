@@ -16,19 +16,19 @@ app.use(cors());
 initModels();
 
 db.authenticate()
-    .then(() => console.log("autenticación exitosa"))
+    .then(() => console.log("Successful authentication"))
     .catch((error) => console.log(error))
 
 db.sync({ force: false })
-    .then(() => console.log("base de datos sincronizada"))
+    .then(() => console.log("Database synchronized"))
     .catch((error) => console.log(error))
 
 transporter.verify()
-    .then(() => console.log("ready to sent emails"))
+    .then(() => console.log("Ready to sent emails"))
     .catch((error) => console.log(error))
     
 app.get("/", (req, res) => {
-    console.log("bienvenido al servidor")
+    console.log("Welcome to the server")
 })
 
 app.use("/api/v1", userRoutes);

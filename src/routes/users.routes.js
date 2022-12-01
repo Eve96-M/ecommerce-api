@@ -19,8 +19,8 @@ const router = Router();
  *         type: object
  *         $ref: '#/components/schemas/Register'
  *     responses:
- *       200:
- *         description: OK
+ *       201:
+ *         description: Successful Operation
  *         content:
  *           application/json:
  *             schema:
@@ -34,6 +34,8 @@ const router = Router();
  *                   items:
  *                     type: object
  *                     $ref: '#/components/schemas/Users'
+ *       400:
+ *         description: Missing Data
  * /api/v1/users/{userId}/verify:
  *  post:
  *   tags: [Verify user]
@@ -54,7 +56,9 @@ const router = Router();
  *        $ref: '#/components/schemas/Verify'
  *   responses:
  *     200:
- *         description: OK
+ *         description: Successful Operation
+ *     400:
+ *         description: Verification Error, Invalid Code
  * /api/v1/users/{userId}/orders:
  *  get:
  *    security:
@@ -70,7 +74,9 @@ const router = Router();
  *       minimun: 1
  *    responses:
  *     200:
- *         description: OK
+ *         description: Successful Operation
+ *     400:
+ *         description: Invalid or Missing Data
  * /api/v1/users/{userId}/cart:
  *   get:
  *    security:
@@ -86,7 +92,9 @@ const router = Router();
  *       minimun: 1
  *    responses:
  *     200:
- *         description: OK
+ *         description: Successful Operation
+ *     400:
+ *         description: Invalidad or Missing Data
  *   post:
  *    security:
  *     - bearerAuth: []
@@ -100,8 +108,10 @@ const router = Router();
  *         type: object
  *         $ref: '#/components/schemas/AddToCart'
  *    responses:
- *     200:
- *         description: OK
+ *     201:
+ *         description: Successful Operation
+ *     400:
+ *         description: Missing Data
  *   put:
  *    security:
  *     - bearerAuth: []
@@ -116,7 +126,7 @@ const router = Router();
  *         $ref: '#/components/schemas/Purchase'
  *    responses:
  *     200:
- *         description: OK
+ *         description: Successful Operation
  * /users/:id/products:
  *  post:
  *   security:
@@ -132,7 +142,7 @@ const router = Router();
  *         $ref: '#/components/schemas/CreateProduct'
  *   responses:
  *     201:
- *         description: OK
+ *         description: Successful Operation
  */   
 
 

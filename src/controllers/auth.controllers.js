@@ -12,13 +12,13 @@ const userLogin = async (req, res, next) => {
         user.token = token;
         res.json({ ...user });
       } else {
-        res.status(400).json({ message: "Información inválida" });
+        res.status(400).json({ message: "Invalid information" });
       }
     } catch (error) {
       next({
         status: 400,
         errorContent: error,
-        message: "Email o contraseña inválida",
+        message: "Invalid email or password",
       });
     }
   };
